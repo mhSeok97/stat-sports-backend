@@ -2,4 +2,5 @@
 
 # ERD
 - https://www.erdcloud.com/d/SJvQqooCRq3B9HHZT
-![SJvQqooCRq3B9HHZT](https://github.com/user-attachments/assets/a81f269f-2463-4f43-bf4f-e87173066ad5)
+
+![SJvQqooCRq3B9HHZT (1)](https://github.com/user-attachments/assets/fc18789a-e868-4a75-8717-6539403aa4cd)
