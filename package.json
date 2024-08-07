@@ -1,0 +1,23 @@
+{
+  "name": "stat-sports-backend",
+  "version": "1.0.0",
+  "description": "- https://www.erdcloud.com/d/SJvQqooCRq3B9HHZT",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.17.21",
+    "express": "^4.19.2",
+    "mysql2": "^3.11.0",
+    "reflect-metadata": "^0.2.2",
+    "routing-controllers": "^0.10.4",
+    "typeorm": "^0.3.20"
+  },
+  "devDependencies": {
+    "@types/node": "^22.1.0"
+  }
+}
