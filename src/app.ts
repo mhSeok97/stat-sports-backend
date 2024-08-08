@@ -45,7 +45,7 @@ export class App {
 
       useExpressServer(this.app, {
         routePrefix: '/apis/v1',
-        controllers: [join(__dirname, 'api', '**', '*.controller.js')],
+        controllers: [join(__dirname, 'api', '**', '*.controller.ts')],
         middlewares: [ErrorMiddleware],
         defaultErrorHandler: false,
       })

@@ -1,5 +1,6 @@
 export class LeagueOutDto {
-  leagueId: number
+  id: number
   name: string
   country: string
+  logoUrl: string
 }
