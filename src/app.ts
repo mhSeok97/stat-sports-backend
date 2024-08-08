@@ -99,7 +99,7 @@ export class App {
       {},
       {
         components: {
-          //   schemas,
+          schemas,
           securitySchemes: {
             AuthPayload: {
               type: 'apiKey',
@@ -110,7 +110,7 @@ export class App {
           },
         },
         info: {
-          title: 'Mooni API',
+          title: 'Statkick API',
           version: '1.0.0',
         },
         servers: [
