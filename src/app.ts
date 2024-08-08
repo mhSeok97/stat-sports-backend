@@ -44,7 +44,7 @@ export class App {
       this.initializeMiddleware()
 
       useExpressServer(this.app, {
-        routePrefix: '/apis/v1',
+        routePrefix: '/api/v1',
         controllers: [join(__dirname, 'api', '**', '*.controller.ts')],
         middlewares: [ErrorMiddleware],
         defaultErrorHandler: false,
@@ -92,7 +92,7 @@ export class App {
   private initializeSwagger() {
     const storage = getMetadataArgsStorage()
     const schemas = validationMetadatasToSchemas({
-      refPointerPrefix: 'apis/v1',
+      refPointerPrefix: 'api/v1',
     })
     const spec = routingControllersToSpec(
       storage,
@@ -115,7 +115,7 @@ export class App {
         },
         servers: [
           {
-            url: '/apis/v1',
+            url: '/api/v1',
           },
         ],
       },
