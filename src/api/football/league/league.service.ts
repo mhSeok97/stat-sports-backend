@@ -1,5 +1,5 @@
-import { Service } from 'typedi'
-import { LeagueOutDto } from './dto/LeagueOut.dto'
+import { Service } from "typedi"
+import { LeagueOutDto } from "./dto/LeagueOut.dto"
 
 @Service()
 export class LeagueService {

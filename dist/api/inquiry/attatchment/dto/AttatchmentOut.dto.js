@@ -9,4 +9,4 @@ class AttachmentOutDto {
     }
 }
 exports.AttachmentOutDto = AttachmentOutDto;
-//# sourceMappingURL=AttatchmentOut.dto.js.map
+// # sourceMappingURL=AttatchmentOut.dto.js.map

@@ -18,16 +18,14 @@ const getAdminMailList = async (cookie) => {
             });
             logger_1.logger.info(`Admin email list: ${mailList}`);
             return mailList;
-        }
-        else {
+        } else {
             logger_1.logger.error(`Failed to get admin email list: ${res.data.message}`);
             return mail_config_1.MailConfig.baseAdminEmailList;
         }
-    }
-    catch (error) {
+    } catch (error) {
         logger_1.logger.error(`Failed to get admin email list: ${error.message}`);
         return mail_config_1.MailConfig.baseAdminEmailList;
     }
 };
 exports.getAdminMailList = getAdminMailList;
-//# sourceMappingURL=admin.js.map
+// # sourceMappingURL=admin.js.map

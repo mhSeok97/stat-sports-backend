@@ -22,4 +22,4 @@ class UnauthorizedError extends httpError_exception_1.HttpException {
     }
 }
 exports.UnauthorizedError = UnauthorizedError;
-//# sourceMappingURL=authorizationError.exception.js.map
+// # sourceMappingURL=authorizationError.exception.js.map

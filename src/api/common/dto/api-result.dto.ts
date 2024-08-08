@@ -1,4 +1,4 @@
-import { ApiError } from './api-error.dto'
+import { ApiError } from "./api-error.dto"
 
 export class ApiResult<T> {
   success: boolean

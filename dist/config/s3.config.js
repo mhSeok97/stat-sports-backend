@@ -5,4 +5,4 @@ exports.S3Config = {
     region: process.env.AWS_REGION,
     bucket: process.env.AWS_S3_BUCKET,
 };
-//# sourceMappingURL=s3.config.js.map
+// # sourceMappingURL=s3.config.js.map

@@ -8,14 +8,14 @@ export class AuthorizationError extends HttpException {
 
 export class InvalidTokenError extends HttpException {
   constructor(message?: string) {
-    const invalidTokenErrorMessage: string = "X-AUTH-PAYLOAD header is invalid";
+    const invalidTokenErrorMessage = "X-AUTH-PAYLOAD header is invalid";
     super(400, message ? `${invalidTokenErrorMessage}: ${message}` : invalidTokenErrorMessage, null);
   }
 }
 
 export class UnauthorizedError extends HttpException {
   constructor(message?: string) {
-    const unauthorizedErrorMessage: string = "Unauthorized";
+    const unauthorizedErrorMessage = "Unauthorized";
     super(401, message ? `${unauthorizedErrorMessage}: ${message}` : unauthorizedErrorMessage, null);
   }
 }

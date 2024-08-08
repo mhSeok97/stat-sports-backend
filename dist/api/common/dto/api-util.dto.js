@@ -10,4 +10,4 @@ function apiSuccess(body) {
 function apiFail(message, errorData) {
     return new api_result_dto_1.ApiResult(false, null, new api_error_dto_1.ApiError(message, errorData));
 }
-//# sourceMappingURL=api-util.dto.js.map
+// # sourceMappingURL=api-util.dto.js.map

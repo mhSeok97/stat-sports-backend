@@ -31,4 +31,4 @@ exports.CommentRepository = mysql_1.AppDataSource.getRepository(comment_entity_1
         return this.update({ commentId }, { isDeleted: true });
     },
 });
-//# sourceMappingURL=comment.repository.js.map
+// # sourceMappingURL=comment.repository.js.map

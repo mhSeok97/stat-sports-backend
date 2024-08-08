@@ -12,4 +12,4 @@ class HttpException extends routing_controllers_1.BadRequestError {
     }
 }
 exports.HttpException = HttpException;
-//# sourceMappingURL=httpError.exception.js.map
+// # sourceMappingURL=httpError.exception.js.map

@@ -18,4 +18,4 @@ exports.AnswerRepository = mysql_1.AppDataSource.getRepository(answer_entity_1.A
         return this.update({ answerId }, { isDeleted: true });
     },
 });
-//# sourceMappingURL=answer.repository.js.map
+// # sourceMappingURL=answer.repository.js.map

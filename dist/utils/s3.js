@@ -35,8 +35,7 @@ const listAllKeys = async (prefix) => {
                 keys.push(item.Key);
             }
         });
-    }
-    catch (err) {
+    } catch (err) {
         throw new Error(`Error listing objects: ${err}`);
     }
     return keys;
@@ -50,8 +49,7 @@ const copyObject = async (oldKey, newKey) => {
             Key: newKey,
         };
         await exports.s3Client.send(new client_s3_1.CopyObjectCommand(copyParams));
-    }
-    catch (err) {
+    } catch (err) {
         throw new Error(`Error copying object: ${err}`);
     }
 };
@@ -62,8 +60,7 @@ const deleteObject = async (key) => {
             Key: key,
         };
         await exports.s3Client.send(new client_s3_1.DeleteObjectCommand(deleteParams));
-    }
-    catch (err) {
+    } catch (err) {
         throw new Error(`Error deleting object: ${err}`);
     }
 };
@@ -76,8 +73,7 @@ const moveObjects = async (sourcePrefix, destinationPrefix) => {
             await copyObject(key, newKey);
             await (0, exports.deleteObject)(key);
         }
-    }
-    catch (err) {
+    } catch (err) {
         throw new Error(`Failed to move objects from ${sourcePrefix} to ${destinationPrefix}: ${err}`);
     }
 };
@@ -86,8 +82,7 @@ const generateDownloadSignedUrl = async (key, expiresIn = 3600) => {
     try {
         const url = await (0, s3_request_presigner_1.getSignedUrl)(exports.s3Client, new client_s3_1.GetObjectCommand({ Bucket: exports.s3Bucket, Key: key }), { expiresIn });
         return url;
-    }
-    catch (err) {
+    } catch (err) {
         throw new Error(`Error generating download signed url: ${err}`);
     }
 };
@@ -105,8 +100,7 @@ const getObjectFromS3 = async (key) => {
             stream.on("error", reject);
             stream.on("end", () => resolve(Buffer.concat(chunks)));
         });
-    }
-    catch (err) {
+    } catch (err) {
         throw new Error(`Error getting object from S3: ${err}`);
     }
 };
@@ -123,11 +117,10 @@ const getImageBuffersFromS3 = async (inquiryId, imageUrls) => {
                 attachments.push({ filename, content: fileBuffer, cid });
             }
         }
-    }
-    catch (error) {
+    } catch (error) {
         logger_1.logger.error(`Failed to get image buffers from S3: ${error.message}`);
     }
     return attachments;
 };
 exports.getImageBuffersFromS3 = getImageBuffersFromS3;
-//# sourceMappingURL=s3.js.map
+// # sourceMappingURL=s3.js.map

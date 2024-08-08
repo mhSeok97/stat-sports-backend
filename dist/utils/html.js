@@ -25,7 +25,7 @@ const replaceImageSrcWithCid = (html, attachments) => {
     let modifiedHtml = html;
     attachments.forEach((attachment) => {
         if (attachment.cid) {
-            const srcRegex = new RegExp(`src=""`, "g");
+            const srcRegex = new RegExp("src=\"\"", "g");
             const altRegex = new RegExp(`alt="${attachment.filename}"`, "g");
             modifiedHtml = modifiedHtml.replace(srcRegex, "");
             modifiedHtml = modifiedHtml.replace(altRegex, `src="cid:${attachment.cid}"`);
@@ -34,4 +34,4 @@ const replaceImageSrcWithCid = (html, attachments) => {
     return modifiedHtml;
 };
 exports.replaceImageSrcWithCid = replaceImageSrcWithCid;
-//# sourceMappingURL=html.js.map
+// # sourceMappingURL=html.js.map

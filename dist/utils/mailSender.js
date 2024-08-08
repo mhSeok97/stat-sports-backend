@@ -23,8 +23,7 @@ const sendEmail = async (templateData, recipients, attachments) => {
             };
             await mailer.sendMail(mailOptions);
         }
-    }
-    catch (error) {
+    } catch (error) {
         logger_1.logger.error(`Failed to send email: ${error.message}`);
     }
 };
@@ -77,4 +76,4 @@ const sendCommentCreationToAdmin = async (info, cookie) => {
     await sendEmail(templateData, recipientsList);
 };
 exports.sendCommentCreationToAdmin = sendCommentCreationToAdmin;
-//# sourceMappingURL=mailSender.js.map
+// # sourceMappingURL=mailSender.js.map

@@ -1,5 +1,5 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
+let __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -26,12 +26,11 @@ class Mailer {
             const info = await this.transporter.sendMail(mailOptions);
             logger_1.logger.info(`Email sent: ${info.messageId}`);
             return info;
-        }
-        catch (error) {
+        } catch (error) {
             logger_1.logger.error(`Failed to send email: ${error instanceof Error ? error.message : error}`);
             throw error;
         }
     }
 }
 exports.Mailer = Mailer;
-//# sourceMappingURL=mailer.js.map
+// # sourceMappingURL=mailer.js.map

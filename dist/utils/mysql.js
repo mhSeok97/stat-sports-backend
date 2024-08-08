@@ -19,4 +19,4 @@ exports.AppDataSource = new typeorm_1.DataSource({
     logging: false,
     timezone: "Asia/Seoul"
 });
-//# sourceMappingURL=mysql.js.map
+// # sourceMappingURL=mysql.js.map

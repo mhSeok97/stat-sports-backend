@@ -1,5 +1,5 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
+let __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -21,4 +21,4 @@ const getMailTemplate = async (templateData) => {
     return template(templateData);
 };
 exports.getMailTemplate = getMailTemplate;
-//# sourceMappingURL=templateLoader.js.map
+// # sourceMappingURL=templateLoader.js.map
