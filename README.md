@@ -42,7 +42,7 @@
 ### 설치 방법
 
 1. 저장소를 클론합니다:
-   git clone https://github.com/yourusername/your-repository.git
+   git clone https://github.com/mhSeok97/stat-sprots-backend.git
    cd your-repository
 
 2. 의존성을 설치합니다:
