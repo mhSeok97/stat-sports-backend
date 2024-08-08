@@ -1,0 +1,1 @@
+{"version":3,"file":"api-result.dto.js","sourceRoot":"","sources":["../../../../src/api/common/dto/api-result.dto.ts"],"names":[],"mappings":";;;AAEA,MAAa,SAAS;IAKpB,YAAY,OAAgB,EAAE,IAAQ,EAAE,QAAmB;QACzD,IAAI,CAAC,OAAO,GAAG,OAAO,CAAA;QACtB,IAAI,CAAC,IAAI,GAAG,IAAI,CAAA;QAChB,IAAI,CAAC,QAAQ,GAAG,QAAQ,CAAA;IAC1B,CAAC;CACF;AAVD,8BAUC"}

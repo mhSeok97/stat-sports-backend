@@ -1,0 +1,1 @@
+{"version":3,"file":"InquiryListOut.dto.js","sourceRoot":"","sources":["../../../../src/api/inquiry/dto/InquiryListOut.dto.ts"],"names":[],"mappings":";;;AAEA,MAAa,iBAAiB;IAC5B,YAAY,SAA0B,EAAE,KAAa;QACnD,IAAI,CAAC,SAAS,GAAG,SAAS,CAAC;QAC3B,IAAI,CAAC,KAAK,GAAG,KAAK,CAAC;IACrB,CAAC;CAGF;AAPD,8CAOC"}

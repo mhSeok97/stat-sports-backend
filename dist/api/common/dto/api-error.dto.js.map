@@ -1,0 +1,1 @@
+{"version":3,"file":"api-error.dto.js","sourceRoot":"","sources":["../../../../src/api/common/dto/api-error.dto.ts"],"names":[],"mappings":";;;AAAA,MAAa,QAAQ;IAInB,YAAY,OAAe,EAAE,SAAe;QAC1C,IAAI,CAAC,OAAO,GAAG,OAAO,CAAA;QACtB,IAAI,CAAC,SAAS,GAAG,SAAS,CAAA;IAC5B,CAAC;CACF;AARD,4BAQC"}

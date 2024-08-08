@@ -1,0 +1,1 @@
+{"version":3,"file":"AttatchmentOut.dto.js","sourceRoot":"","sources":["../../../../../src/api/inquiry/attatchment/dto/AttatchmentOut.dto.ts"],"names":[],"mappings":";;;AAAA,MAAa,gBAAgB;IAC3B,YAAY,QAAgB,EAAE,OAAe,EAAE,YAAoB;QACjE,IAAI,CAAC,QAAQ,GAAG,QAAQ,CAAC;QACzB,IAAI,CAAC,OAAO,GAAG,OAAO,CAAC;QACvB,IAAI,CAAC,YAAY,GAAG,YAAY,CAAC;IACnC,CAAC;CAIF;AATD,4CASC"}
