@@ -1,5 +1,5 @@
 # dependencies
-dist
+dist/
 /node_modules
 /src/logs
 
