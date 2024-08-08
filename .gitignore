@@ -1,1 +1,18 @@
-node_modules
+# dependencies
+/dist
+/node_modules
+/src/logs
+
+#misc
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+/.idea/.gitignore
+/.idea/freekick-backend.iml
+/.idea/jpa-buddy.xml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/prettier.xml
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/vcs.xml
