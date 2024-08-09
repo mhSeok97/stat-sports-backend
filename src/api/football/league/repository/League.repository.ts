@@ -1,7 +1,7 @@
 import { AppDataSource } from 'utils/mysql'
-import { League } from '../entity/League.entity'
+import { LeagueEntity } from '../entity/League.entity'
 
-export const LeagueRepository = AppDataSource.getRepository(League).extend({
+export const LeagueRepository = AppDataSource.getRepository(LeagueEntity).extend({
   findLeague() {
     return this.find({
       select: ['id', 'name', 'label_en', 'label_ko', 'logo_url', 'country'],

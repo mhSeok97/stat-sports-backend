@@ -1,7 +1,7 @@
 import { Service } from 'typedi'
 import { LeagueOutDto } from './dto/LeagueOut.dto'
 import { LeagueRepository } from './repository/League.repository'
-import { League } from './entity/League.entity'
+import { LeagueEntity } from './entity/League.entity'
 import { NotFoundError } from 'routing-controllers'
 
 @Service()
@@ -12,7 +12,7 @@ export class LeagueService {
     return leagues.map(this.convertLeagueToLeagueOutDto)
   }
 
-  private convertLeagueToLeagueOutDto(league: League): LeagueOutDto {
+  private convertLeagueToLeagueOutDto(league: LeagueEntity): LeagueOutDto {
     if (!league) {
       throw new NotFoundError()
     }

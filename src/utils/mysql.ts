@@ -1,7 +1,8 @@
 import 'reflect-metadata'
 import { DataSource } from 'typeorm'
 import { MySQLConfig } from 'config/mysql.config'
-import { League } from 'api/football/league/entity/League.entity'
+import { LeagueEntity } from 'api/football/league/entity/League.entity'
+import { TeamEntity } from '../api/football/team/entity/Team.entity'
 
 export const AppDataSource = new DataSource({
   type: 'mysql',
@@ -10,7 +11,7 @@ export const AppDataSource = new DataSource({
   username: MySQLConfig.user,
   password: MySQLConfig.password,
   database: MySQLConfig.database,
-  entities: [League],
+  entities: [LeagueEntity, TeamEntity],
   synchronize: MySQLConfig.synchronize,
   logging: false,
   // KST

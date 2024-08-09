@@ -1,17 +1,17 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
 
-@Entity('league')
-export class League {
+@Entity({ schema: 'football', name: 'league' })
+export class LeagueEntity {
   @PrimaryGeneratedColumn({ name: 'id' })
   id: number
 
-  @Column({ name: 'name' })
+  @Column({ name: 'name', nullable: false })
   name: string
 
-  @Column()
+  @Column({ name: 'label_en', nullable: false })
   label_en: string
 
-  @Column()
+  @Column({ name: 'label_ko', nullable: false })
   label_ko: string
 
   @Column({ name: 'logo_url' })
