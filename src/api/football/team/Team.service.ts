@@ -7,11 +7,11 @@ import { TeamRepository } from './repository/Team.repository'
 @Service()
 export class TeamService {
   async getTeams(leagueId?: number, seasonId?: number): Promise<TeamOutDto[]> {
-    const teams = await TeamRepository.findLeague(leagueId, seasonId)
-    return teams.map(this.convertTeamToLeagueOutDto)
+    const teams = await TeamRepository.findTeam(leagueId, seasonId)
+    return teams.map(this.convertTeamToTeamOutDto)
   }
 
-  private convertTeamToLeagueOutDto(team: TeamEntity): TeamOutDto {
+  private convertTeamToTeamOutDto(team: TeamEntity): TeamOutDto {
     if (!team) {
       throw new NotFoundError()
     }
