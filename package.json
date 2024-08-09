@@ -4,7 +4,11 @@
   "description": "- https://www.erdcloud.com/d/SJvQqooCRq3B9HHZT",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx ts-node src/index.ts",
+    "start:qa": "env-cmd -f .env.qa npx ts-node src/index.ts",
+    "start:dev": "env-cmd -f .env.dev npx ts-node src/index.ts",
+    "start:local": "env-cmd -f .env.local npx ts-node src/index.ts"
   },
   "keywords": [],
   "author": "",
@@ -35,7 +39,14 @@
     "winston-daily-rotate-file": "^5.0.0"
   },
   "devDependencies": {
+    "@types/app-module-path": "^2.2.2",
+    "@types/compression": "^1.7.5",
+    "@types/cookie-parser": "^1.4.7",
+    "@types/cors": "^2.8.17",
+    "@types/hpp": "^0.2.6",
+    "@types/morgan": "^1.9.9",
     "@types/node": "^22.1.0",
+    "@types/swagger-ui-express": "^4.1.6",
     "@typescript-eslint/eslint-plugin": "^5.29.0",
     "@typescript-eslint/parser": "^5.29.0",
     "eslint": "^8.20.0",

@@ -1,7 +1,7 @@
 import { Service } from 'typedi'
 import { LeagueOutDto } from './dto/LeagueOut.dto'
-import { LeagueRepository } from './repository/league.repository'
-import { League } from './entity/league.entity'
+import { LeagueRepository } from './repository/League.repository'
+import { League } from './entity/League.entity'
 import { NotFoundError } from 'routing-controllers'
 
 @Service()

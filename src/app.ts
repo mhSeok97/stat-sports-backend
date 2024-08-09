@@ -8,9 +8,9 @@ import express from 'express'
 import swaggerUi from 'swagger-ui-express'
 import { Server } from 'http'
 import { join } from 'path'
-import { NODE_ENV, PORT, CORS_ORIGIN, LOG_FORMAT, CORS_CREDENTIALS } from 'config'
+import { CORS_CREDENTIALS, CORS_ORIGIN, LOG_FORMAT, NODE_ENV, PORT } from 'config'
 import { logger, stream } from 'utils/logger'
-import { useExpressServer, useContainer, getMetadataArgsStorage } from 'routing-controllers'
+import { getMetadataArgsStorage, useContainer, useExpressServer } from 'routing-controllers'
 import { Container } from 'typeorm-typedi-extensions'
 import { AppDataSource } from 'utils/mysql'
 import { ErrorMiddleware } from 'middlewares/error.middlewares'
@@ -50,7 +50,7 @@ export class App {
         defaultErrorHandler: false,
       })
 
-      if (this.env != 'live') {
+      if (this.env !== 'live') {
         logger.info('init swagger')
         this.initializeSwagger()
       }

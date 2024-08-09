@@ -1,5 +1,5 @@
 import { AppDataSource } from 'utils/mysql'
-import { League } from '../entity/league.entity'
+import { League } from '../entity/League.entity'
 
 export const LeagueRepository = AppDataSource.getRepository(League).extend({
   findLeague() {

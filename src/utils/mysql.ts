@@ -1,7 +1,7 @@
 import 'reflect-metadata'
 import { DataSource } from 'typeorm'
 import { MySQLConfig } from 'config/mysql.config'
-import { League } from 'api/football/league/entity/league.entity'
+import { League } from 'api/football/league/entity/League.entity'
 
 export const AppDataSource = new DataSource({
   type: 'mysql',

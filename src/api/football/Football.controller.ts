@@ -1,5 +1,5 @@
-import { JsonController, Get } from 'routing-controllers'
-import { FootballService } from './football.service'
+import { Get, JsonController } from 'routing-controllers'
+import { FootballService } from './Football.service'
 import { apiSuccess } from 'api/common/dto/api-util.dto'
 
 @JsonController('/football')

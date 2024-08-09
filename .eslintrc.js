@@ -10,11 +10,10 @@ module.exports = {
 		sourceType: 'module',
 	},
 	rules: {
-
 		'@typescript-eslint/ban-types': 'off',
 		'@typescript-eslint/no-explicit-any': 'off',
 		// indent: ["error", "tab", { SwitchCase: 1 }],
-		quotes: ["error", "double"],
+		quotes: ["error", "single"],
 		"semi-spacing": ["error", { before: false, after: true }],
 		"init-declarations": ["error", "always"],
 		eqeqeq: ["error", "smart"],
