@@ -54,3 +54,64 @@ git clone (SSH 링크)
 npm install
 npm start
 ```
+
+### 빌드
+
+#### PM2
+
+```bash
+npm install pm2@latest -g
+```
+
+<hr>
+
+```bash
+# package.json 스크립트에 build 부분 수정
+
+{
+  "scripts": {
+    "build": "tsc
+  }
+}
+```
+
+```bash
+# 빌드 및 실행
+npm run build
+pm2 start dist/index.js --name myapp
+pm2 startup
+pm2 save
+
+```
+
+#### Nginx
+```bash
+# Nginx 설치
+sudo apt update
+sudo apt install nginx
+```
+
+
+```bash
+# Nginx 설정 파일 수정
+sudo nano /etc/nginx/sites-available/default
+
+# server 블록 수정
+server {
+    listen 80;
+
+    server_name your_domain_or_ip;
+
+    location / {
+        proxy_pass http://localhost:3000; # 애플리케이션이 실행되는 포트
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+
+# 저장 및 재시작
+sudo systemctl restart nginx
+```

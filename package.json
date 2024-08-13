@@ -4,11 +4,12 @@
   "description": "- https://www.erdcloud.com/d/SJvQqooCRq3B9HHZT",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
     "start": "npx ts-node src/index.ts",
     "start:qa": "env-cmd -f .env.qa npx ts-node src/index.ts",
     "start:dev": "env-cmd -f .env.dev npx ts-node src/index.ts",
-    "start:local": "env-cmd -f .env.local npx ts-node src/index.ts"
+    "start:local": "env-cmd -f .env.local npx ts-node src/index.ts",
+    "format": "prettier --write '**/*.ts' '**/*.js'"
   },
   "keywords": [],
   "author": "",
