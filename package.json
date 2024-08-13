@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "start": "npx ts-node src/index.ts",
-    "start:qa": "env-cmd -f .env.qa npx ts-node src/index.ts",
+    "start:live": "env-cmd -f .env.live npx ts-node src/index.ts",
     "start:dev": "env-cmd -f .env.dev npx ts-node src/index.ts",
     "start:local": "env-cmd -f .env.local npx ts-node src/index.ts",
     "format": "prettier --write '**/*.ts' '**/*.js'"
