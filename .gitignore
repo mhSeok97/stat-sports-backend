@@ -5,6 +5,8 @@ dist/
 
 #misc
 .env.local
+.env.dev
+.env.live
 .env.development.local
 .env.test.local
 .env.production.local
