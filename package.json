@@ -9,6 +9,10 @@
     "start:live": "env-cmd -f .env.live npx ts-node src/index.ts",
     "start:dev": "env-cmd -f .env.dev npx ts-node src/index.ts",
     "start:local": "env-cmd -f .env.local npx ts-node src/index.ts",
+    "dev": "nodemon --exec ts-node src/index.ts",
+    "dev:live": "nodemon --exec env-cmd -f .env.live ts-node src/index.ts",
+    "dev:dev": "nodemon --exec env-cmd -f .env.dev ts-node src/index.ts",
+    "dev:local": "nodemon --exec env-cmd -f .env.local ts-node src/index.ts",
     "format": "prettier --write '**/*.ts' '**/*.js'"
   },
   "keywords": [],
@@ -53,6 +57,9 @@
     "env-cmd": "^10.1.0",
     "eslint": "^8.20.0",
     "eslint-config-prettier": "^8.10.0",
-    "eslint-plugin-prettier": "^4.2.1"
+    "eslint-plugin-prettier": "^4.2.1",
+    "nodemon": "^3.1.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
   }
 }
