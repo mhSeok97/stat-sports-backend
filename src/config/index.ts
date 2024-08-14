@@ -1,6 +1,6 @@
 import { config } from 'dotenv'
 
-config({ path: `.env.${process.env.NODE_ENV || 'local'}` })
+config({ path: `.env.${process.env.NODE_ENV || 'dev'}` })
 
 export const CORS_CREDENTIALS = process.env.CORS_CREDENTIALS === 'true'
 export const LOG_FORMAT: 'combined' | 'dev' = process.env.LOG_FORMAT as 'combined' | 'dev'
