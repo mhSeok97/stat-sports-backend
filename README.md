@@ -7,14 +7,12 @@
 # 패키지 정보 업데이트
 sudo apt update
 ```
-<hr>
 
 ```bash
 # nvm install script 설치 및 실행
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 ```
-<hr>
 
 ```bash
 # nvm 로드
@@ -25,20 +23,13 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 ```
 
-<hr>
-
-```bash
-# nvm 버전 확인
-nvm -v
-```
-
-<hr>
 
 ```bash
 # node.js, npm 설치
 nvm install node
 sudo apt install npm
 ```
+<hr>
 
 #### Git SSH 등록하기
 ```bash
@@ -47,7 +38,7 @@ cd ~
 git clone (SSH 링크)
 ```
 
-<hr>
+
 
 ```bash
 # 패키지 설치 및 서버 실행
@@ -62,8 +53,6 @@ npm start
 ```bash
 npm install pm2@latest -g
 ```
-
-<hr>
 
 ```bash
 # package.json 스크립트에 build 부분 수정
@@ -83,6 +72,8 @@ pm2 startup
 pm2 save
 
 ```
+
+<hr>
 
 #### Nginx
 ```bash

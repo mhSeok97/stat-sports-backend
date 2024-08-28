@@ -1,4 +1,10 @@
 export const swaggerDocument = {
+  GET_POSTS: {
+    summary: '게시글 전체 조회',
+    description: `게시글 전체 조회.
+                  쿼리 파라미터 참고.`,
+  },
+
   GET_LEAGUES: {
     summary: '리그 전체 조회',
     description: `리그를 전체 조회.
