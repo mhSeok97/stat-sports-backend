@@ -1,9 +1,9 @@
 import { addPath } from 'app-module-path'
-addPath(__dirname)
-
 import { App } from 'app'
 import { ValidateEnv } from 'utils/validateEnv'
 import { logger } from 'utils/logger'
+
+addPath(__dirname)
 
 logger.info('server.ts starting')
 ValidateEnv()

@@ -1,7 +1,7 @@
 import { Service } from 'typedi'
-import { PostEntity } from './entity/Post.entity'
-import { PostOutDto } from './dto/PostOut.dto'
-import { PostRepository } from '../repository/Post.repository'
+import { PostEntity } from 'api/community/post/entity/Post.entity'
+import { PostOutDto } from 'api/community/post/dto/PostOut.dto'
+import { PostRepository } from 'api/community/repository/Post.repository'
 import { NotFoundError } from 'routing-controllers'
 
 @Service()

@@ -1,8 +1,8 @@
 import { Service } from 'typedi'
-import { LeagueOutDto } from './league/dto/LeagueOut.dto'
-import { LeagueService } from './league/League.service'
-import { TeamOutDto } from './team/dto/TeamOut.dto'
-import { TeamService } from './team/Team.service'
+import { LeagueOutDto } from 'api/football/league/dto/LeagueOut.dto'
+import { LeagueService } from 'api/football/league/League.service'
+import { TeamOutDto } from 'api/football/team/dto/TeamOut.dto'
+import { TeamService } from 'api/football/team/Team.service'
 
 @Service()
 export class FootballService {

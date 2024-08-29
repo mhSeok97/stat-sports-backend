@@ -1,5 +1,5 @@
 import { AppDataSource } from 'utils/mysql'
-import { PostEntity } from '../post/entity/Post.entity'
+import { PostEntity } from 'api/community/post/entity/Post.entity'
 
 export const PostRepository = AppDataSource.getRepository(PostEntity).extend({
   findPost() {

@@ -1,6 +1,6 @@
 import { Service } from 'typedi'
-import { PostService } from './post/Post.service'
-import { PostOutDto } from './post/dto/PostOut.dto'
+import { PostService } from 'api/community/post/Post.service'
+import { PostOutDto } from 'api/community/post/dto/PostOut.dto'
 
 @Service()
 export class CommunityService {

@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "start": "npx ts-node src/index.ts",
+    "start": "ts-node -r tsconfig-paths/register src/index.ts",
     "start:live": "env-cmd -f .env.live npx ts-node src/index.ts",
-    "start:dev": "env-cmd -f .env.dev npx ts-node src/index.ts",
-    "start:local": "env-cmd -f .env.local npx ts-node src/index.ts",
+    "start:dev": "env-cmd -f .env.dev ts-node -r tsconfig-paths/register src/index.ts",
+    "start:local": "env-cmd -f .env.local ts-node -r tsconfig-paths/register src/index.ts",
     "dev": "nodemon --exec ts-node src/index.ts",
     "dev:live": "nodemon --exec env-cmd -f .env.live ts-node src/index.ts",
     "dev:dev": "nodemon --exec env-cmd -f .env.dev ts-node src/index.ts",
@@ -50,7 +50,7 @@
     "@types/cors": "^2.8.17",
     "@types/hpp": "^0.2.6",
     "@types/morgan": "^1.9.9",
-    "@types/node": "^22.1.0",
+    "@types/node": "^20.12.0",
     "@types/swagger-ui-express": "^4.1.6",
     "@typescript-eslint/eslint-plugin": "^5.29.0",
     "@typescript-eslint/parser": "^5.29.0",
@@ -60,6 +60,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "nodemon": "^3.1.4",
     "ts-node": "^10.9.2",
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.4",
+    "tsconfig-paths": "^4.2.0"
   }
 }

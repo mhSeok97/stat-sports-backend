@@ -1,8 +1,8 @@
 import { Service } from 'typedi'
 import { NotFoundError } from 'routing-controllers'
-import { TeamOutDto } from './dto/TeamOut.dto'
-import { TeamEntity } from './entity/Team.entity'
-import { TeamRepository } from './repository/Team.repository'
+import { TeamOutDto } from 'api/football/team/dto/TeamOut.dto'
+import { TeamEntity } from 'api/football/team/entity/Team.entity'
+import { TeamRepository } from 'api/football/team/repository/Team.repository'
 
 @Service()
 export class TeamService {

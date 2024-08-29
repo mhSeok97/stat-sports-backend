@@ -1,5 +1,5 @@
 import { Get, JsonController, QueryParam } from 'routing-controllers'
-import { FootballService } from './Football.service'
+import { FootballService } from 'api/football/Football.service'
 import { apiSuccess } from 'api/common/dto/api-util.dto'
 import { OpenAPI } from 'routing-controllers-openapi'
 import { swaggerDocument } from 'config/swagger.config'
