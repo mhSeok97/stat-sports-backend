@@ -1,3 +1,27 @@
+# 로컬환경에서 빌드 및 실행
+
+### 환경변수 설정 (.env.local)
+```
+MYSQL_HOST=
+MYSQL_PORT=
+MYSQL_DATABASE=
+MYSQL_USER=
+MYSQL_PASSWORD=
+
+NODE_ENV=dev
+PORT=3000
+LOG_DIR=../logs
+CORS_ORIGIN=http://localhost:3000,http://localhost:3001
+CORS_CREDENTIALS=true
+```
+
+### 빌드 및 실행
+```
+npm install
+npm run bulid
+npm run start
+```
+
 # Project Initialization
 
 ### 배포
