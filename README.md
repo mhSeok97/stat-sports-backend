@@ -15,6 +15,7 @@ CORS_ORIGIN=http://localhost:3000,http://localhost:3001
 CORS_CREDENTIALS=true
 ```
 
+### 빌드 및 실행
 ```
 npm install
 npm run bulid
