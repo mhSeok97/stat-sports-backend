@@ -12,10 +12,11 @@ WORKDIR /app
 
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/.env.dev ./.env.dev
+# COPY --from=builder /app/.env.dev ./.env.dev
 COPY --from=builder /app/src ./src
 COPY --from=builder /app/tsconfig.json ./tsconfig.json
 COPY package.json ./
+COPY .env.dev ./.env.dev
 
 EXPOSE 3000
 
