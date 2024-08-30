@@ -32,6 +32,30 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: create .env
+        run: |
+          echo "MYSQL_HOST=MYSQL_HOST" >> .env.dev
+          echo "MYSQL_PORT=MYSQL_PORT" >> .env.dev
+          echo "MYSQL_DATABASE=MYSQL_DATABASE" >> .env.dev
+          echo "MYSQL_USER=MYSQL_USER" >> .env.dev
+          echo "MYSQL_PASSWORD=MYSQL_PASSWORD" >> .env.dev
+          echo "NODE_ENV=NODE_ENV" >> .env.dev
+          echo "PORT=PORT" >> .env.dev
+          echo "LOG_DIR=LOG_DIR" >> .env.dev
+          echo "CORS_ORIGIN=CORS_ORIGIN" >> .env.dev
+          echo "CORS_CREDENTIALS=CORS_CREDENTIALS" >> .env.dev
+        env:
+          MYSQL_HOST: ${{secrets.MYSQL_HOST}}
+          MYSQL_PORT: ${{secrets.MYSQL_PORT}}
+          MYSQL_DATABASE: ${{secrets.MYSQL_DATABASE}}
+          MYSQL_USER: ${{secrets.MYSQL_USER}}
+          MYSQL_PASSWORD: ${{secrets.MYSQL_PASSWORD}}
+          NODE_ENV: ${{secrets.NODE_ENV}}
+          PORT: ${{secrets.PORT}}
+          LOG_DIR: ${{secrets.LOG_DIR}}
+          CORS_ORIGIN: ${{secrets.CORS_ORIGIN}}
+          CORS_CREDENTIALS: ${{secrets.CORS_CREDENTIALS}}
       - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v2
