@@ -5,4 +5,8 @@ export const MenuRepository = AppDataSource.getRepository(MenuEntity).extend({
   findMenu() {
     return this.find()
   },
+
+  findMenusByCategoryId(categoryId: number) {
+    return this.find({ where: { category_id: categoryId } })
+  },
 })

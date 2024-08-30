@@ -3,6 +3,7 @@ import { CommentOutDto } from 'api/community/post/comment/dto/CommentOut.dto'
 export class PostOutDto {
   post_id: number
   user_id: number
+  category_id: number
   menu_id: number
   submenu_id: number
   title: string

@@ -14,6 +14,9 @@ export class PostEntity {
   @Column({ name: 'user_id', nullable: false })
   user_id: number
 
+  @Column({ name: 'category_id', nullable: false })
+  category_id: number
+
   @Column({ name: 'menu_id', nullable: false })
   menu_id: number
 

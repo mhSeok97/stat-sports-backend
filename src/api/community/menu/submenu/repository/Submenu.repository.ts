@@ -5,4 +5,8 @@ export const SubmenuRepository = AppDataSource.getRepository(SubmenuEntity).exte
   findSubmenu() {
     return this.find()
   },
+
+  findSubmenusByMenuId(menuId: number) {
+    return this.find({ where: { menu_id: menuId } })
+  },
 })
