@@ -5,4 +5,8 @@ export const CommentRepository = AppDataSource.getRepository(CommentEntity).exte
   findComment() {
     return this.find()
   },
+
+  findCommentsByPostId(postId: number) {
+    return this.find({ where: { post_id: postId } })
+  },
 })

@@ -3,13 +3,54 @@ import { NotFoundError } from 'routing-controllers'
 import { CommentEntity } from 'api/community/post/comment/entity/Comment.entity'
 import { CommentOutDto } from 'api/community/post/comment/dto/CommentOut.dto'
 import { CommentRepository } from './repository/Comment.repository'
+import { CreateCommentDto } from 'api/community/post/comment/dto/CreateComment.dto'
+import { UpdateCommentDto } from 'api/community/post/comment/dto/UpdateComment.dto'
 
 @Service()
 export class CommentService {
   async getComments(): Promise<CommentOutDto[]> {
     const comments = await CommentRepository.findComment()
-
     return comments.map(this.convertCommentToCommentOutDto)
+  }
+
+  async getCommentById(commentId: number): Promise<CommentOutDto> {
+    const comment = await CommentRepository.findOne({ where: { comment_id: commentId } })
+    if (!comment) {
+      throw new NotFoundError('Comment not found')
+    }
+    return this.convertCommentToCommentOutDto(comment)
+  }
+
+  async getCommentByPostId(postId: number): Promise<CommentOutDto[]> {
+    const comments = await CommentRepository.findCommentsByPostId(postId)
+    if (!comments || comments.length === 0) {
+      throw new NotFoundError('No comments found for this post')
+    }
+    return comments.map(this.convertCommentToCommentOutDto)
+  }
+
+  async createComment(createCommentDto: CreateCommentDto): Promise<CommentOutDto> {
+    const comment = CommentRepository.create(createCommentDto)
+    const savedComment = await CommentRepository.save(comment)
+    return this.convertCommentToCommentOutDto(savedComment)
+  }
+
+  async updateComment(commentId: number, updateCommentDto: UpdateCommentDto): Promise<CommentOutDto> {
+    const comment = await CommentRepository.findOne({ where: { comment_id: commentId } })
+    if (!comment) {
+      throw new NotFoundError('Comment not found')
+    }
+    await CommentRepository.update(commentId, updateCommentDto)
+    const updatedComment = await CommentRepository.findOne({ where: { comment_id: commentId } })
+    return this.convertCommentToCommentOutDto(updatedComment)
+  }
+
+  async deleteComment(commentId: number): Promise<void> {
+    const comment = await CommentRepository.findOne({ where: { comment_id: commentId } })
+    if (!comment) {
+      throw new NotFoundError('Comment not found')
+    }
+    await CommentRepository.delete(commentId)
   }
 
   private convertCommentToCommentOutDto(comment: CommentEntity): CommentOutDto {
