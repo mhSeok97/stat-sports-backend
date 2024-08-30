@@ -1,8 +1,10 @@
+import { CommentOutDto } from 'api/community/post/comment/dto/CommentOut.dto'
+
 export class PostOutDto {
   post_id: number
-  user_id: string
-  category_id: string
-  subcategory_id: string
+  user_id: number
+  menu_id: number
+  submenu_id: number
   title: string
   content: string
   created_at: Date
@@ -11,4 +13,5 @@ export class PostOutDto {
   upvotes: number
   downvotes: number
   disabled: boolean
+  comments: CommentOutDto[]
 }

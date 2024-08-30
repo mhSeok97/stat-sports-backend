@@ -7,8 +7,8 @@ export const PostRepository = AppDataSource.getRepository(PostEntity).extend({
       select: [
         'post_id',
         'user_id',
-        'category_id',
-        'subcategory_id',
+        'menu_id',
+        'submenu_id',
         'title',
         'content',
         'created_at',

@@ -1,7 +1,7 @@
 import { Service } from 'typedi'
 import { PostEntity } from 'api/community/post/entity/Post.entity'
 import { PostOutDto } from 'api/community/post/dto/PostOut.dto'
-import { PostRepository } from 'api/community/repository/Post.repository'
+import { PostRepository } from 'api/community/post/repository/Post.repository'
 import { NotFoundError } from 'routing-controllers'
 
 @Service()
@@ -19,8 +19,8 @@ export class PostService {
     const postDto = new PostOutDto()
     postDto.post_id = post.post_id
     postDto.user_id = post.user_id
-    postDto.category_id = post.category_id
-    postDto.subcategory_id = post.subcategory_id
+    postDto.menu_id = post.menu_id
+    postDto.submenu_id = post.submenu_id
     postDto.title = post.title
     postDto.content = post.content
     postDto.created_at = post.created_at
