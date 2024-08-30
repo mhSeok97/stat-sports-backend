@@ -130,3 +130,7 @@ server {
 # 저장 및 재시작
 sudo systemctl restart nginx
 ```
+
+
+
+
