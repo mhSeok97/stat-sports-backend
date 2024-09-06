@@ -1,0 +1,86 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main  # main 브랜치에 푸시되면 개발 환경으로 배포
+    tags:
+      - 'v*.*.*'  # 태그가 푸시되면 라이브 환경으로 배포
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Log in to Docker Hub
+      run: echo "${{ secrets.DOCKERHUB_ACCESS_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+
+    - name: Build Docker image
+      run: |
+        if [ "${{ github.ref }}" == "refs/heads/main" ]; then
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/dev-stat-sports-backend:latest --build-arg NODE_ENV=development .
+        else
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/stat-sports-backend-prod:latest --build-arg NODE_ENV=production .
+        fi
+
+    - name: Push Docker image
+      run: |
+        if [ "${{ github.ref }}" == "refs/heads/main" ]; then
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/dev-stat-sports-backend:latest
+        else
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/stat-sports-backend-prod:latest
+        fi
+
+    - name: Set up SSH
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.EC2_SSH_KEY }}
+
+    - name: Deploy to EC2
+      run: |
+        if [ "${{ github.ref }}" == "refs/heads/main" ]; then
+          ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_DEV_HOST }} << 'EOF'
+            docker stop dev-stat-sports-backend || true
+            docker rm dev-stat-sports-backend || true
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/dev-stat-sports-backend:latest
+            docker run -d -p ${{ secrets.PORT }}:${{ secrets.PORT }} \
+              --name dev-stat-sports-backend \
+              -e NODE_ENV=development \
+              -e CORS_CREDENTIALS=${{ secrets.CORS_CREDENTIALS }} \
+              -e CORS_ORIGIN=${{ secrets.CORS_ORIGIN }} \
+              -e LOG_DIR=${{ secrets.LOG_DIR }} \
+              -e MYSQL_DATABASE=${{ secrets.MYSQL_DATABASE }} \
+              -e MYSQL_HOST=${{ secrets.MYSQL_HOST }} \
+              -e MYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD }} \
+              -e MYSQL_PORT=${{ secrets.MYSQL_PORT }} \
+              -e MYSQL_USER=${{ secrets.MYSQL_USER }} \
+              -e NODE_ENV=${{ secrets.NODE_ENV }} \
+              -e PORT=${{ secrets.PORT }} \
+              ${{ secrets.DOCKERHUB_USERNAME }}/dev-stat-sports-backend:latest
+            exit
+          EOF
+        else
+          ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_PROD_HOST }} << 'EOF'
+            docker stop stat-sports-backend-prod || true
+            docker rm stat-sports-backend-prod || true
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/stat-sports-backend-prod:latest
+            docker run -d -p ${{ secrets.PORT }}:${{ secrets.PORT }} \
+              --name stat-sports-backend-prod \
+              -e NODE_ENV=production \
+              -e CORS_CREDENTIALS=${{ secrets.CORS_CREDENTIALS }} \
+              -e CORS_ORIGIN=${{ secrets.CORS_ORIGIN }} \
+              -e LOG_DIR=${{ secrets.LOG_DIR }} \
+              -e MYSQL_DATABASE=${{ secrets.MYSQL_DATABASE }} \
+              -e MYSQL_HOST=${{ secrets.MYSQL_HOST }} \
+              -e MYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD }} \
+              -e MYSQL_PORT=${{ secrets.MYSQL_PORT }} \
+              -e MYSQL_USER=${{ secrets.MYSQL_USER }} \
+              -e NODE_ENV=${{ secrets.NODE_ENV }} \
+              -e PORT=${{ secrets.PORT }} \
+              ${{ secrets.DOCKERHUB_USERNAME }}/stat-sports-backend-prod:latest
+            exit
+          EOF
+        fi
