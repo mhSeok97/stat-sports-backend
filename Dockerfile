@@ -1,23 +1,20 @@
-FROM node:20.12.0-alpine3.19 AS builder
+# 베이스 이미지
+FROM node:16
+
+# 작업 디렉토리 설정
 WORKDIR /app
 
+# package.json과 package-lock.json 복사
 COPY package*.json ./
+
+# 의존성 설치
 RUN npm install
+
+# 소스 코드 복사
 COPY . .
 
-RUN npm run build
-
-FROM node:20.12.0-alpine3.19
-WORKDIR /app
-
-COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/node_modules ./node_modules
-# COPY --from=builder /app/.env.dev ./.env.dev
-COPY --from=builder /app/src ./src
-COPY --from=builder /app/tsconfig.json ./tsconfig.json
-COPY package.json ./
-COPY .env.dev ./.env.dev
-
+# 포트 개방
 EXPOSE 3000
 
-CMD ["npm", "run", "start:dev"]
+# 애플리케이션 실행 명령
+CMD ["npm", "start"]
